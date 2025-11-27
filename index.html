@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Framework - Funcionalidades y Arquitectura</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-info">
+                    <h1>🍃 Spring Framework</h1>
+                    <p class="matricula">Framework empresarial para el desarrollo de aplicaciones Java modernas y escalables</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container main-content">
+        <section id="spring-content">
+            <p class="subtitle">Funcionalidades, Arquitectura y Ecosistema Completo</p>
+
+            <!-- Introducción -->
+            <div class="content-section">
+                <h3>🎯 ¿Qué es Spring Framework?</h3>
+                <p>Spring Framework es un framework de código abierto para Java que proporciona una infraestructura integral para desarrollar aplicaciones empresariales robustas, escalables y mantenibles. Creado en 2003 por Rod Johnson, Spring ha evolucionado hasta convertirse en el estándar de facto para el desarrollo empresarial en Java.</p>
+
+                <div class="highlight-box">
+                    <strong>🌟 Filosofía de Spring</strong>
+                    <p>Spring se basa en la filosofía de "Programación contra interfaces, no implementaciones", promoviendo el bajo acoplamiento y alta cohesión mediante IoC y DI. Su enfoque modular permite a los desarrolladores usar solo los componentes necesarios, manteniendo la aplicación liviana y eficiente.</p>
+                </div>
+
+                <h4>📋 Características Fundamentales</h4>
+                <ul>
+                    <li><strong>IoC (Inversión de Control):</strong> Gestión del ciclo de vida de los beans.</li>
+                    <li><strong>DI (Inyección de Dependencias):</strong> Manejo declarativo de dependencias.</li>
+                    <li><strong>AOP:</strong> Manejo transversal de seguridad, logging y transacciones.</li>
+                    <li><strong>Modularidad:</strong> Usa solo lo necesario.</li>
+                    <li><strong>Testing:</strong> Integración con Mockito y JUnit.</li>
+                    <li><strong>Integraciones:</strong> JPA, JDBC, JMS, JavaMail, JMX.</li>
+                    <li><strong>Programación Reactiva:</strong> WebFlux + Reactor.</li>
+                </ul>
+            </div>
+
+            <!-- Historia y Evolución -->
+            <div class="content-section">
+                <h3>📜 Historia y Evolución de Spring</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2003</h4>
+                            <p>Rod Johnson publica "Expert One-on-One J2EE Design and Development" y lanza el framework Spring inicial.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2004</h4>
+                            <p>Spring 1.0 se lanza oficialmente, introduciendo el contenedor IoC y soporte para AOP.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2006</h4>
+                            <p>Spring 2.0 introduce namespaces XML, soporte para anotaciones y mejoras en AOP.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2009</h4>
+                            <p>Spring 3.0 agrega soporte completo para Java 5+ y expresiones Spring (SpEL).</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2013</h4>
+                            <p>Spring 4.0 introduce soporte para Java 8, perfiles de beans y mejoras en Web MVC.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2014</h4>
+                            <p>Spring Boot 1.0 revoluciona el desarrollo con configuración automática y servidores embebidos.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2017</h4>
+                            <p>Spring 5.0 introduce programación reactiva con WebFlux y soporte para Kotlin.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>2022</h4>
+                            <p>Spring Framework 6.0 y Spring Boot 3.0 requieren Java 17+ y Jakarta EE 9+.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core -->
+            <div class="content-section">
+                <h3>⚙️ Funcionalidades del Core Container</h3>
+
+                <div class="functionality-box">
+                    <div class="functionality-title">🔷 Inversión de Control (IoC)</div>
+                    <p>El contenedor IoC crea, configura e inyecta dependencias entre los objetos de la aplicación. En lugar de que los objetos creen sus propias dependencias, el contenedor las proporciona, facilitando el testing y la reutilización.</p>
+                </div>
+
+                <div class="functionality-box">
+                    <div class="functionality-title">💉 Inyección de Dependencias (DI)</div>
+                    <p>Spring implementa DI a través de constructores, setters o campos, permitiendo una gestión declarativa de las dependencias mediante anotaciones como @Autowired, @Inject o configuración XML.</p>
+                </div>
+
+                <h4>Componentes del Core</h4>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h5>🔧 BeanFactory</h5>
+                        <p>Contenedor IoC básico que proporciona configuración y gestión de objetos.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h5>📦 ApplicationContext</h5>
+                        <p>Contenedor avanzado: eventos, i18n, autoconfiguración, integración con AOP.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h5>🌱 Bean Lifecycle</h5>
+                        <p>Ciclo de vida completo del bean con callbacks personalizables.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h5>🎯 Scopes de Beans</h5>
+                        <p>Singleton, Prototype, Request, Session, Application, WebSocket.</p>
+                    </div>
+                </div>
+
+                <h4>Ejemplo de Configuración</h4>
+                <div class="code-example">
+                    <pre><code><span class="code-annotation">@Configuration</span>
+<span class="code-keyword">public class</span> AppConfig {
+    
+    <span class="code-annotation">@Bean</span>
+    <span class="code-keyword">public</span> UserService userService() {
+        <span class="code-keyword">return new</span> UserServiceImpl(userRepository());
+    }
+    
+    <span class="code-annotation">@Bean</span>
+    <span class="code-keyword">public</span> UserRepository userRepository() {
+        <span class="code-keyword">return new</span> JdbcUserRepository(dataSource());
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Arquitectura -->
+            <div class="content-section">
+                <h3>🏗️ Arquitectura de Spring Framework</h3>
+
+                <div class="architecture-diagram">
+                    <h4 style="text-align: center; color: var(--secondary-color); margin-bottom: 20px;">Capas de la Arquitectura Spring</h4>
+                    <div class="layer layer-1">Test</div>
+                    <div class="layer layer-2">Web (MVC, WebFlux)</div>
+                    <div class="layer layer-3">AOP</div>
+                    <div class="layer layer-4">Data Access</div>
+                    <div class="layer layer-5">Core Container</div>
+                </div>
+
+                <h4>📚 Descripción de Capas</h4>
+                <ul>
+                    <li><strong>Core Container:</strong> Beans, Context, IoC, DI, Expresiones (SpEL).</li>
+                    <li><strong>Data Access:</strong> JDBC, ORM, JPA, transacciones, OXM.</li>
+                    <li><strong>AOP:</strong> Logging, seguridad, transacciones, aspectos personalizados.</li>
+                    <li><strong>Web:</strong> Controladores, REST, WebFlux, WebSocket, Multipart.</li>
+                    <li><strong>Test:</strong> JUnit, TestContext, Mock objects, Spring MVC Test.</li>
+                </ul>
+            </div>
+
+            <!-- AOP -->
+            <div class="content-section">
+                <h3>🎭 Programación Orientada a Aspectos (AOP)</h3>
+
+                <div class="functionality-box">
+                    <div class="functionality-title">🔍 ¿Qué es AOP?</div>
+                    <p>Permite implementar funcionalidades transversales sin duplicar código. Los aspectos encapsulan comportamientos que afectan a múltiples clases, como logging, seguridad o gestión de transacciones.</p>
+                </div>
+
+                <h4>Conceptos Clave</h4>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h5>Aspect</h5>
+                        <p>Módulo reutilizable que agrupa lógica transversal.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h5>Join Point</h5>
+                        <p>Momento en el flujo donde puede aplicarse un aspecto (ejecución de método).</p>
+                    </div>
+                    <div class="feature-item">
+                        <h5>Advice</h5>
+                        <p>Lógica aplicada: Before, After, Around, AfterReturning, AfterThrowing.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h5>Pointcut</h5>
+                        <p>Expresión que define dónde aplicar un advice.</p>
+                    </div>
+                </div>
+
+                <h4>Ejemplo de Aspecto</h4>
+                <div class="code-example">
+                    <pre><code><span class="code-annotation">@Aspect</span>
+<span class="code-annotation">@Component</span>
+<span class="code-keyword">public class</span> LoggingAspect {
+    
+    <span class="code-annotation">@Before("execution(* com.example.service.*.*(..))"</span>)
+    <span class="code-keyword">public void</span> logBefore(JoinPoint joinPoint) {
+        System.out.println(<span class="code-string">"Ejecutando: "</span> + joinPoint.getSignature().getName());
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Ecosistema Spring -->
+            <div class="content-section">
+                <h3>🌿 Ecosistema Completo de Spring</h3>
+                <p>Spring no es solo un framework, es un ecosistema completo de proyectos que cubren todas las necesidades del desarrollo empresarial moderno.</p>
+                
+                <div class="ecosystem-container">
+                    <div class="ecosystem-item">
+                        <h4><span>🚀</span> Spring Boot</h4>
+                        <p>Facilita la creación de aplicaciones Spring listas para producción con configuración automática y servidores embebidos.</p>
+                        <ul>
+                            <li>Auto-configuración inteligente</li>
+                            <li>Starter dependencies</li>
+                            <li>Actuator para monitoreo</li>
+                            <li>Spring Boot CLI</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ecosystem-item">
+                        <h4><span>🗄️</span> Spring Data</h4>
+                        <p>Simplifica el acceso a datos para bases de datos SQL, NoSQL y tecnologías de acceso a datos.</p>
+                        <ul>
+                            <li>Spring Data JPA</li>
+                            <li>Spring Data MongoDB</li>
+                            <li>Spring Data Redis</li>
+                            <li>Consultas derivadas de métodos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ecosystem-item">
+                        <h4><span>🔐</span> Spring Security</h4>
+                        <p>Framework completo para autenticación y autorización en aplicaciones Java.</p>
+                        <ul>
+                            <li>Autenticación y autorización</li>
+                            <li>Protección contra ataques</li>
+                            <li>Integración con OAuth2</li>
+                            <li>LDAP, SAML, OpenID</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ecosystem-item">
+                        <h4><span>🌩️</span> Spring Cloud</h4>
+                        <p>Herramientas para construir sistemas distribuidos y arquitecturas de microservicios.</p>
+                        <ul>
+                            <li>Service Discovery (Eureka)</li>
+                            <li>API Gateway</li>
+                            <li>Configuración distribuida</li>
+                            <li>Circuit Breaker</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ecosystem-item">
+                        <h4><span>🌐</span> Spring WebFlux</h4>
+                        <p>Framework web reactivo para aplicaciones no bloqueantes y escalables.</p>
+                        <ul>
+                            <li>Programación reactiva</li>
+                            <li>No bloqueante</li>
+                            <li>Backpressure</li>
+                            <li>WebSockets</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="ecosystem-item">
+                        <h4><span>📧</span> Spring Integration</h4>
+                        <p>Extensión para implementar patrones de integración empresarial.</p>
+                        <ul>
+                            <li>Mensajería empresarial</li>
+                            <li>Rutas y transformaciones</li>
+                            <li>Adaptadores</li>
+                            <li>Flujos de trabajo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spring Boot en Detalle -->
+            <div class="content-section">
+                <h3>🚀 Spring Boot: Productividad Máxima</h3>
+                <p>Spring Boot facilita la creación rápida de servicios con configuración mínima, eliminando la necesidad de configuración manual extensa.</p>
+                
+                <h4>Características Principales</h4>
+                <ul>
+                    <li><strong>Auto-configuración:</strong> Configura beans automáticamente basándose en classpath.</li>
+                    <li><strong>Starter POMs:</strong> Dependencias listas para usar agrupadas por funcionalidad.</li>
+                    <li><strong>Actuator:</strong> Monitoreo en tiempo real y gestión de aplicaciones.</li>
+                    <li><strong>Servidor embebido:</strong> Tomcat, Jetty o Undertow incluidos por defecto.</li>
+                    <li><strong>Configuración externa:</strong> Properties, YAML, variables de entorno, etc.</li>
+                    <li><strong>Spring Boot CLI:</strong> Herramienta de línea de comandos para desarrollo rápido.</li>
+                </ul>
+                
+                <h4>Ejemplo de Aplicación Spring Boot</h4>
+                <div class="code-example">
+                    <pre><code><span class="code-annotation">@SpringBootApplication</span>
+<span class="code-keyword">public class</span> DemoApplication {
+    
+    <span class="code-keyword">public static void</span> main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+    
+    <span class="code-annotation">@RestController</span>
+    <span class="code-keyword">class</span> HelloController {
+        
+        <span class="code-annotation">@GetMapping("/hello")</span>
+        <span class="code-keyword">public</span> String hello() {
+            <span class="code-keyword">return</span> <span class="code-string">"Hello, Spring Boot!"</span>;
+        }
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Spring Data en Detalle -->
+            <div class="content-section">
+                <h3>🗄️ Spring Data</h3>
+                <p>Simplifica la persistencia en bases de datos SQL y NoSQL, reduciendo significativamente el código boilerplate.</p>
+                
+                <h4>Módulos Principales</h4>
+                <ul>
+                    <li><strong>Spring Data JPA:</strong> CRUD inmediato con repositorios basados en JPA.</li>
+                    <li><strong>Spring Data MongoDB:</strong> Integración con bases de datos MongoDB.</li>
+                    <li><strong>Spring Data Redis:</strong> Acceso a almacenes de datos Redis.</li>
+                    <li><strong>Spring Data Elasticsearch:</strong> Integración con motores de búsqueda Elasticsearch.</li>
+                    <li><strong>Spring Data Cassandra:</strong> Soporte para bases de datos Cassandra.</li>
+                </ul>
+                
+                <h4>Características Destacadas</h4>
+                <ul>
+                    <li><strong>Consultas derivadas:</strong> findByNombreAndEdad() genera consultas automáticamente.</li>
+                    <li><strong>Paging & Sorting:</strong> Paginación y ordenamiento integrados.</li>
+                    <li><strong>Consultas personalizadas:</strong> @Query para JPQL o SQL nativo.</li>
+                    <li><strong>Proyecciones:</strong> Selección parcial de datos.</li>
+                    <li><strong>Auditoría:</strong> Tracking automático de creación y modificación.</li>
+                </ul>
+                
+                <h4>Ejemplo de Repositorio Spring Data</h4>
+                <div class="code-example">
+                    <pre><code><span class="code-annotation">@Repository</span>
+<span class="code-keyword">public interface</span> UserRepository <span class="code-keyword">extends</span> JpaRepository&lt;User, Long&gt; {
+    
+    List&lt;User&gt; findByLastName(String lastName);
+    
+    <span class="code-annotation">@Query("SELECT u FROM User u WHERE u.email = :email")</span>
+    User findByEmail(<span class="code-annotation">@Param("email")</span> String email);
+    
+    Page&lt;User&gt; findByAgeGreaterThan(<span class="code-keyword">int</span> age, Pageable pageable);
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Spring Security en Detalle -->
+            <div class="content-section">
+                <h3>🔐 Spring Security</h3>
+                <p>Framework completo para autenticación y autorización en aplicaciones Java empresariales.</p>
+                
+                <h4>Características Principales</h4>
+                <ul>
+                    <li><strong>Autenticación:</strong> Form login, Basic auth, OAuth2, JWT, LDAP.</li>
+                    <li><strong>Autorización:</strong> Control de acceso basado en roles y permisos.</li>
+                    <li><strong>Protección:</strong> CSRF, CORS, headers de seguridad, sesiones seguras.</li>
+                    <li><strong>Integraciones:</strong> Spring MVC, WebFlux, WebSocket, Method Security.</li>
+                    <li><strong>Anotaciones:</strong> @PreAuthorize, @Secured, @RolesAllowed.</li>
+                </ul>
+                
+                <h4>Configuración de Seguridad</h4>
+                <div class="code-example">
+                    <pre><code><span class="code-annotation">@Configuration</span>
+<span class="code-annotation">@EnableWebSecurity</span>
+<span class="code-keyword">public class</span> SecurityConfig {
+    
+    <span class="code-annotation">@Bean</span>
+    <span class="code-keyword">public</span> SecurityFilterChain filterChain(HttpSecurity http) <span class="code-keyword">throws</span> Exception {
+        http
+            .authorizeHttpRequests(authz -> authz
+                .requestMatchers(<span class="code-string">"/admin/**"</span>).hasRole(<span class="code-string">"ADMIN"</span>)
+                .requestMatchers(<span class="code-string">"/user/**"</span>).hasAnyRole(<span class="code-string">"USER"</span>, <span class="code-string">"ADMIN"</span>)
+                .anyRequest().authenticated()
+            )
+            .formLogin(withDefaults());
+        <span class="code-keyword">return</span> http.build();
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Spring Cloud en Detalle -->
+            <div class="content-section">
+                <h3>🌩️ Spring Cloud: Microservicios</h3>
+                <p>Conjunto de herramientas para construir y orquestar arquitecturas de microservicios.</p>
+                
+                <h4>Componentes Principales</h4>
+                <ul>
+                    <li><strong>Eureka:</strong> Service Discovery para registro y descubrimiento de servicios.</li>
+                    <li><strong>Config Server:</strong> Configuración centralizada para múltiples servicios.</li>
+                    <li><strong>Gateway:</strong> API Gateway para enrutamiento, filtrado y balanceo de carga.</li>
+                    <li><strong>Hystrix:</strong> Circuit Breaker para tolerancia a fallos.</li>
+                    <li><strong>Zipkin:</strong> Distributed tracing para seguimiento de requests.</li>
+                    <li><strong>Sleuth:</strong> Agrega IDs de correlación a los logs.</li>
+                </ul>
+                
+                <h4>Arquitectura de Microservicios con Spring Cloud</h4>
+                <div class="highlight-box">
+                    <p>Spring Cloud permite implementar patrones esenciales de microservicios como Service Discovery, Configuración Centralizada, API Gateway, Circuit Breaker y Distributed Tracing, facilitando la construcción de sistemas distribuidos resilientes.</p>
+                </div>
+            </div>
+
+            <!-- MVC vs WebFlux -->
+            <div class="content-section">
+                <h3>🌐 Spring MVC vs WebFlux</h3>
+                <p>Dos enfoques para crear APIs modernas con diferentes modelos de programación.</p>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Spring MVC</th>
+                            <th>Spring WebFlux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Modelo de Programación</td>
+                            <td>Imperativo, bloqueante</td>
+                            <td>Reactivo, no bloqueante</td>
+                        </tr>
+                        <tr>
+                            <td>Concurrencia</td>
+                            <td>Basado en hilos (thread-per-request)</td>
+                            <td>Event-loop con pocos hilos</td>
+                        </tr>
+                        <tr>
+                            <td>Escalabilidad</td>
+                            <td>Buena para aplicaciones tradicionales</td>
+                            <td>Excelente para I/O intensivo</td>
+                        </tr>
+                        <tr>
+                            <td>Backpressure</td>
+                            <td>No soportado</td>
+                            <td>Soportado nativamente</td>
+                        </tr>
+                        <tr>
+                            <td>Servidores</td>
+                            <td>Tomcat, Jetty, Undertow</td>
+                            <td>Netty, Undertow, Tomcat, Jetty</td>
+                        </tr>
+                        <tr>
+                            <td>Casos de Uso</td>
+                            <td>Aplicaciones tradicionales, CRUD</td>
+                            <td>Streaming, aplicaciones en tiempo real</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Ejemplo WebFlux</h4>
+                <div class="code-example">
+                    <pre><code><span class="code-annotation">@RestController</span>
+<span class="code-keyword">public class</span> ReactiveUserController {
+    
+    <span class="code-annotation">@GetMapping("/users")</span>
+    <span class="code-keyword">public</span> Flux&lt;User&gt; getUsers() {
+        <span class="code-keyword">return</span> userRepository.findAll();
+    }
+    
+    <span class="code-annotation">@GetMapping("/users/{id}")</span>
+    <span class="code-keyword">public</span> Mono&lt;User&gt; getUser(<span class="code-annotation">@PathVariable</span> String id) {
+        <span class="code-keyword">return</span> userRepository.findById(id);
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Testing -->
+            <div class="content-section">
+                <h3>🧪 Testing en Spring</h3>
+                <p>Spring proporciona un soporte completo para testing, facilitando la escritura de pruebas unitarias e integrales.</p>
+                
+                <h4>Anotaciones para Testing</h4>
+                <ul>
+                    <li><strong>@SpringBootTest:</strong> Carga el contexto completo de la aplicación.</li>
+                    <li><strong>@WebMvcTest:</strong> Pruebas específicas para capa web.</li>
+                    <li><strong>@DataJpaTest:</strong> Pruebas para repositorios JPA.</li>
+                    <li><strong>@MockBean:</strong> Crea mocks de beans en el contexto.</li>
+                    <li><strong>@TestPropertySource:</strong> Configura properties para testing.</li>
+                </ul>
+                
+                <h4>Ejemplo de Test</h4>
+                <div class="code-example">
+                    <pre><code><span class="code-annotation">@SpringBootTest</span>
+<span class="code-keyword">class</span> UserServiceTest {
+    
+    <span class="code-annotation">@Autowired</span>
+    <span class="code-keyword">private</span> UserService userService;
+    
+    <span class="code-annotation">@MockBean</span>
+    <span class="code-keyword">private</span> UserRepository userRepository;
+    
+    <span class="code-annotation">@Test</span>
+    <span class="code-keyword">void</span>
+      </div>
+            </div>
+
+            <!-- MVC & WebFlux -->
+            <div class="content-section">
+                <h3>🌐 Spring MVC y WebFlux</h3>
+                <p>Dos formas de crear APIs modernas.</p>
+                <ul>
+                    <li><strong>Spring MVC:</strong> Modelo imperativo, basado en hilos.</li>
+                    <li><strong>WebFlux:</strong> Modelo reactivo y no bloqueante.</li>
+                    <li><strong>Controllers REST:</strong> @RestController + @GetMapping.</li>
+                </ul>
+            </div>
+              </div>
+
+            <!-- Casos de uso -->
+            <div class="content-section">
+                <h3>📌 Casos de Uso Reales</h3>
+                <ul>
+                    <li>Sistemas bancarios y transaccionales.</li>
+                    <li>Servicios REST para apps móviles.</li>
+                    <li>Microservicios escalables en la nube.</li>
+                    <li>Plataformas de comercio electrónico.</li>
+                </ul>
+            </div>
+
+        </section>
+    </div>
+
+    <footer>
+        <p>© Copyright 2025 Spring Framework Presentation</p>
+    </footer>
+</body>
+</html>
